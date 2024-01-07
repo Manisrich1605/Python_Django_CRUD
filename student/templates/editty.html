@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            margin-top: 5%;
+            padding: 0;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        button[type="submit"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" action="/updatety/{{student.id}}">
+        {% csrf_token %}
+        <div>
+            <h3>Update Details</h3>
+        </div>
+        <div>
+            <label for="eid">Id:</label>
+            <input type="text" id="eid" name="eid" value="{{student.eid}}" />
+        </div>
+        <div>
+            <label for="ename">Leavetype:</label>
+            <input type="text" id="eleavetype" name="eleavetype" value="{{student.eleavetype}}" />
+        </div>
+        <div>
+            <label for="eemail">Defaultdays:</label>
+            <input type="text" id="edefaultdays" name="edefaultdays" value="{{student.edefaultdays}}" />
+        </div>
+        <div>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</body>
+
+</html>
